@@ -1,11 +1,11 @@
 define resin::service (
-  $init_script_file_path     = undef,
-  $init_script_file_template = undef,
-  $service_name              = undef,
-  $service_ensure            = undef,
-  $service_enable            = undef,
-  $service_hasrestart        = undef,
-  $service_subscribe         = undef,) {
+  $init_script_file_path     = $resin::params::init_script_file_path,
+  $init_script_file_template = $resin::params::init_script_file_template,
+  $service_name              = $resin::params::service_name,
+  $service_ensure            = $resin::params::service_ensure,
+  $service_enable            = $resin::params::service_enable,
+  $service_hasrestart        = $resin::params::service_hasrestart,
+  $service_subscribe         = $resin::params::service_subscribe) {
   file { $init_script_file_path:
     ensure  => present,
     owner   => root,

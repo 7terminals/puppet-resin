@@ -1,11 +1,11 @@
 define resin::install (
-  $ensure              = undef,
-  $user                = undef,
-  $group               = undef,
-  $install_mode        = undef,
-  $install_source      = undef,
-  $install_build_dir   = undef,
-  $install_destination = undef,) {
+  $ensure              = $resin::params::ensure,
+  $user                = $resin::params::user,
+  $group               = $resin::params::group,
+  $install_mode        = $resin::params::install_mode,
+  $install_source      = $resin::params::install_source,
+  $install_build_dir   = "${settings::vardir}/${name}-working",
+  $install_destination = $resin::params::install_destination,) {
   if $install_mode != 'upstream' {
     fail('This module only supports Resin installation from upstream provider')
   }

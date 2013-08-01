@@ -11,23 +11,25 @@
 # Sample Usage:
 #
 define resin (
-  $ensure = present,
-  $user   = 'root',
-  $group  = 'root',
-  $install_mode              = 'upstream',
+  $ensure = undef,
+  $user   = undef,
+  $group  = undef,
+  $install_mode              = undef,
   $install_source            = undef,
-  $install_build_dir         = "${$settings::vardir}/${name}-working",
-  $install_destination       = '/opt/resin',
-  $config_file_path          = "${::install_destination}/conf/resin.xml",
+  $install_build_dir         = undef,
+  $install_destination       = undef,
+  $config_file_path          = undef,
   $config_file_template      = undef,
-  $init_script_file_path     = "/etc/init.d/${name}",
+  $init_script_file_path     = undef,
   $init_script_file_template = undef,
   $service_name              = undef,
-  $service_ensure            = running,
-  $service_enable            = true,
-  $service_hasrestart        = true,
-  $service_subscribe         = Resin::Config[$name],
+  $service_ensure            = undef,
+  $service_enable            = undef,
+  $service_hasrestart        = undef,
+  $service_subscribe         = undef,
   $noop   = false,) {
+  include resin::params
+
   # Install
   resin::install { $name:
     ensure              => $ensure,
