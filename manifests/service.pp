@@ -5,6 +5,7 @@ define resin::service (
   $service_ensure            = $resin::params::service_ensure,
   $service_enable            = $resin::params::service_enable,
   $service_hasrestart        = $resin::params::service_hasrestart,
+  $service_hasstatus         = $resin::params::service_hasstatus,
   $service_subscribe         = $resin::params::service_subscribe) {
   file { $init_script_file_path:
     ensure  => present,
@@ -18,6 +19,7 @@ define resin::service (
     ensure     => $service_ensure,
     enable     => $service_enable,
     hasrestart => $service_hasrestart,
+    hasstatus  => $service_hasstatus,
     subscribe  => $service_subscribe,
   }
 

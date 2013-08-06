@@ -20,6 +20,7 @@ class resin::params (
   $service_ensure       = running
   $service_enable       = true
   $service_hasrestart   = true
+  $service_hasstatus    = true
   $service_subscribe    = Resin::Config['resin']
 
   # Operating system scpecific configuration

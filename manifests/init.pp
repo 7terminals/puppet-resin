@@ -26,6 +26,7 @@ define resin (
   $service_ensure            = undef,
   $service_enable            = undef,
   $service_hasrestart        = undef,
+  $service_hasstatus         = undef,
   $service_subscribe         = undef,
   $noop   = false,) {
   include resin::params
@@ -58,6 +59,7 @@ define resin (
     service_ensure => $service_ensure,
     service_enable => $service_enable,
     service_hasrestart        => $service_hasrestart,
+    service_hasstatus         => $service_hasstatus,
     service_subscribe         => $service_subscribe,
     noop           => $noop,
     require        => Resin::Config[$name],
